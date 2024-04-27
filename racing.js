@@ -258,7 +258,7 @@ function trainCars(numSteps) {
 
 function updateLearningData(actionIndex, carIndex) {
     const observations = getObservations(carIndex);
-    if (!(learningData[carIndex] && !learningData[carIndex][observations]) {
+    if (!learningData[carIndex] && !learningData[carIndex][observations]) {
         learningData[carIndex][observations] = new Array(Object.keys(actions).length).fill(0);
     }
 
