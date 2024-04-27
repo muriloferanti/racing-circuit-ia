@@ -221,7 +221,7 @@ function getReward(carIndex) {
 
 function chooseAction(carIndex) {
     const observations = getObservations(carIndex);
-    if ((learningData[carIndex] && learningData[carIndex][observations] !== undefined && learningData[carIndex][observations] >= 0) {
+    if (learningData[carIndex] && learningData[carIndex][observations] !== undefined && learningData[carIndex][observations] >= 0) {
         return learningData[carIndex][observations];
     } else {
         return Math.trunc(Math.random() * Object.keys(actions).length);
