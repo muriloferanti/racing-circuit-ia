@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Racing - Track with Controllable Car</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+
+        .controls-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #carList {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="controls-container">
+        <label for="numCars">Number of Cars:</label> <!-- Adjusted the label -->
+        <input type="number" id="numCars" min="1" value="1">
+        <br>
+        <label for="numSteps">Number of Steps:</label> <!-- Adjusted the label -->
+        <input type="number" id="numSteps" min="500" value="500">
+        <br>
+        <button id="startGame" onclick="startGame()">Start Game</button> <!-- Adjusted the button id and onclick function name -->
+    </div>
+    <canvas id="myCanvas" width="1280" height="720"></canvas>
+    <div id="carList"></div>
+    <script src="racing.js"></script> <!-- Adjusted the JavaScript file name -->
+</body>
+</html>
