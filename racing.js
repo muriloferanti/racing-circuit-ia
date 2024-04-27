@@ -163,7 +163,7 @@ function startGame() {
 
 function initializeLearningData(numCars) {
     for (let i = 0; i < numCars; i++) {
-        learningData.push({});
+        learningData[i] = [];
     }
 }
 
