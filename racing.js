@@ -10,7 +10,10 @@ var startPointX = centerX - 40;
 var startPointY = centerY - 200;
 
 var cars = [];
-let learningData = JSON.parse(localStorage.getItem('learningData'));
+let learningData = [];
+if(localStorage.getItem('learningData')){
+    learningData = JSON.parse(localStorage.getItem('learningData'));
+}
 
 let previousFinishLineDistance = 0;
 
@@ -163,7 +166,7 @@ function startGame() {
 
 function initializeLearningData(numCars) {
     for (let i = 0; i < numCars; i++) {
-        learningData[i] = [];
+        learningData.push({});
     }
 }
 
