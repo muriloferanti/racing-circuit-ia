@@ -11,9 +11,6 @@ var startPointY = centerY - 200;
 
 var cars = [];
 let learningData = [];
-if(localStorage.getItem('learningData')){
-    learningData = JSON.parse(localStorage.getItem('learningData'));
-}
 
 let previousFinishLineDistance = 0;
 
@@ -159,16 +156,13 @@ function startGame() {
     var numSteps = parseInt(numSteps.value);
 
 
-    initializeLearningData(numCars);
+
+
     initializeCars(numCars);
     trainCars(numSteps);
 }
 
-function initializeLearningData(numCars) {
-    for (let i = 0; i < numCars; i++) {
-        learningData.push({});
-    }
-}
+
 
 function getObservations(carIndex) {
     return JSON.stringify({
@@ -227,7 +221,7 @@ function getReward(carIndex) {
 
 function chooseAction(carIndex) {
     const observations = getObservations(carIndex);
-    if (learningData[carIndex][observations] !== undefined && learningData[carIndex][observations] >= 0) {
+    if ((learningData[carIndex] && learningData[carIndex][observations] !== undefined && learningData[carIndex][observations] >= 0) {
         return learningData[carIndex][observations];
     } else {
         return Math.trunc(Math.random() * Object.keys(actions).length);
@@ -259,7 +253,6 @@ function trainCars(numSteps) {
             }
         }, 10);
     }
-    localStorage.setItem('learningData', JSON.stringify(learningData));
 }
 
 
